@@ -28,6 +28,8 @@ if SERVER then
         net.WriteFloat(oldClassCooldown)
         net.Send(ply)
         
+        hook.Run("TTTCCustomClassDrop", ply, drop)
+
         local vsrc = ply:GetShootPos()
         local vang = ply:GetAimVector()
         local vvel = ply:GetVelocity()
