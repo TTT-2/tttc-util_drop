@@ -13,8 +13,8 @@ hook.Add("TTTCUpdateClass", "TTTCClassDropAddonPost", function(ply, old, new)
     end
 end)
 
-hook.Add("PlayerSpawn", "TTTCRemoveClassOnSpawn", function(ply)
-    if GetRoundState() == ROUND_ACTIVE and not ply:HasWeapon("weapon_ttt_classdrop") and ply:HasCustomClass() and GetGlobalBool("ttt_classes_keep_on_respawn") then
+hook.Add("TTTCPlayerRespawnedWithClass", "TTTCGiveClassDropperOnSpawn", function(ply)
+    if not ply:HasWeapon("weapon_ttt_classdrop") then
         ply:Give("weapon_ttt_classdrop")
     end
 end)
